@@ -1,0 +1,47 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svca1
+  labels:
+    app: svca1
+spec:
+  selector:
+    app: svca1
+  ports:
+    - name: svca1webrole  
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svca1webroledeployment
+  labels:
+    app: svca1webrole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svca1webrole
+  template:
+    metadata:
+      labels:
+        app: svca1webrole
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "svca1webrole"
+        dapr.io/app-port: "8080"
+        dapr.io/enable-api-logging: "true"
+    spec:
+      containers:
+      - name: svca1webrole
+        image: ghcr.io/dapr/samples/hello-k8s-node:latest
+        env:
+        - name: APP_PORT
+          value: "8080"
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
