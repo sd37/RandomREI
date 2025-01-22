@@ -44,3 +44,4 @@ spec:
           value: "3000"
         ports:
         - containerPort: 3000
+        imagePullPolicy: Always
