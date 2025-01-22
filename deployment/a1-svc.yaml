@@ -38,10 +38,9 @@ spec:
     spec:
       containers:
       - name: webrolea1svc
-        image: localhost/slna/webrolea1svc:1.0
+        image: localhost:5000/slna/webrolea1svc:1.0
         env:
         - name: APP_PORT
           value: "3000"
         ports:
         - containerPort: 3000
-        imagePullPolicy: Never
