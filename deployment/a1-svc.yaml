@@ -11,7 +11,7 @@ spec:
     - name: svca1webrole  
       protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 3000
   type: LoadBalancer
 
 ---
@@ -41,7 +41,7 @@ spec:
         image: ghcr.io/dapr/samples/hello-k8s-node:latest
         env:
         - name: APP_PORT
-          value: "8080"
+          value: "3000"
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
         imagePullPolicy: Always
