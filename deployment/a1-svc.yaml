@@ -1,14 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: svca1
+  name: a1svc
   labels:
-    app: svca1
+    app: a1svc
 spec:
   selector:
-    app: svca1
+    app: a1svc
   ports:
-    - name: svca1webrole  
+    - name: webrolea1svc  
       protocol: TCP
       port: 80
       targetPort: 3000
@@ -20,25 +20,25 @@ kind: Deployment
 metadata:
   name: svca1webroledeployment
   labels:
-    app: svca1webrole
+    app: webrolea1svc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: svca1webrole
+      app: webrolea1svc
   template:
     metadata:
       labels:
-        app: svca1webrole
+        app: webrolea1svc
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "svca1webrole"
-        dapr.io/app-port: "8080"
+        dapr.io/app-id: "webrolea1svc"
+        dapr.io/app-port: "3000"
         dapr.io/enable-api-logging: "true"
     spec:
       containers:
-      - name: svca1webrole
-        image: ghcr.io/dapr/samples/hello-k8s-node:latest
+      - name: webrolesa1svc
+        image: local/a1:1.0 
         env:
         - name: APP_PORT
           value: "3000"
