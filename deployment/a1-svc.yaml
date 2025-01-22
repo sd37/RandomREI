@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: webrolesa1svc
-        image: local/a1:1.0 
+        image: localhost/solna/a1:1.0 
         env:
         - name: APP_PORT
           value: "3000"
