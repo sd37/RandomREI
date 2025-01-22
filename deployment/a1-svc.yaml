@@ -37,8 +37,8 @@ spec:
         dapr.io/enable-api-logging: "true"
     spec:
       containers:
-      - name: webrolesa1svc
-        image: localhost/solna/a1:1.0 
+      - name: webrolea1svc
+        image: localhost/solna/webrolea1svc:1.0 
         env:
         - name: APP_PORT
           value: "3000"
