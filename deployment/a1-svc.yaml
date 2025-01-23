@@ -19,16 +19,16 @@ kind: Deployment
 metadata:
   name: svca1webroledeployment
   labels:
-    app: webrolea1svc
+    app: a1svc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webrolea1svc
+      app: a1svc
   template:
     metadata:
       labels:
-        app: webrolea1svc
+        app: a1svc
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "webrolea1svc"
