@@ -8,8 +8,7 @@ spec:
   selector:
     app: a1svc
   ports:
-    - name: webrolea1svc  
-      protocol: TCP
+    - protocol: TCP
       port: 80
       targetPort: 8080
   type: LoadBalancer
