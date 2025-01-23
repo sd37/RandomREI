@@ -11,7 +11,7 @@ spec:
     - name: webrolea1svc  
       protocol: TCP
       port: 80
-      targetPort: 3000
+      targetPort: 8080
   type: LoadBalancer
 
 ---
@@ -33,14 +33,15 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "webrolea1svc"
-        dapr.io/app-port: "3000"
+        dapr.io/app-port: "8080"
         dapr.io/enable-api-logging: "true"
+        dapr.io/log-level: "debug"
     spec:
       containers:
       - name: webrolea1svc
         image: localhost/slna/webrolea1svc:1.0
         env:
         - name: APP_PORT
-          value: "3000"
+          value: "8080"
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
