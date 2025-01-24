@@ -1,7 +1,6 @@
-// this is a pure stateless service.
 using Microsoft.AspNetCore.Mvc;
 
-namespace a1.Controllers
+namespace webrolea2.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -19,7 +18,7 @@ namespace a1.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

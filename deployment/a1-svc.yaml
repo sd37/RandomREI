@@ -29,6 +29,7 @@ spec:
     metadata:
       labels:
         app: a1svc
+        role: webrole
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "webrolea1svc"
