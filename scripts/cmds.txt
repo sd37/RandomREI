@@ -1,1 +1,5 @@
 kind-windows-amd64.exe load docker-image localhost/slna/webrolea1svc:1.0 --name randomrei
+kubectl port-forward svca1webroledeployment-ff966779c-sjd5h 7001:8080
+
+-- notes
+ports in yaml file should match ports in dockerfile. Otherwise daprd will fail.
