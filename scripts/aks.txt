@@ -1,0 +1,15 @@
+Commonalitys
+
+1. infra level
+- Common cluster per region already setup following compliance.
+- Solution can deploy services to their own isolated namespace.
+- take care of ev2 deployment, generation of rollout specs, many ev2 shell extenstions etc.
+- if services need access to some resource like state-store, keyvault etc, then can specify these requirements in service yaml file and 
+  infra will take care of the reconcilation to meet these requirements.
+
+2. Service level
+- Services within a solution (assigned to an isolated namespace) can be specified by a yaml file.
+  Service owners shouldn't be writing rollout specs or shell extenstionn or care about ev2.
+- Most often services need common features like service to service call, need some orchestration pattern like chained tasks, fan-in, fan-out etc.
+  The infra will provide these basic primitives which services can plugin and for implementation of business logic. Services can specify which features they need   from the infra in a yaml file as well.
+
