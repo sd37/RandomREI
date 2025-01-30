@@ -1,10 +1,14 @@
-﻿
-namespace webrolea2.Controllers
+﻿namespace webrolea2.Controllers
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Newtonsoft.Json;
+    using System;
+    using System.Net.Http;
     using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     [ApiController]
     [Route("[controller]")]
