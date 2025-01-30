@@ -3,29 +3,44 @@ namespace webrolea2.Controllers
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+    using System.Text;
 
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     [IgnoreAntiforgeryToken]
     public class GenerateEventsController : ControllerBase
     {
         private readonly ILogger<GenerateEventsController> _logger;
+        private readonly HttpClient client;
+        private readonly int DAPR_PORT = 3500;
+        private readonly string host = "http://localhost";
+        private readonly string pubSubName = "servicebus-a2queue";
+
 
         public GenerateEventsController(ILogger<GenerateEventsController> logger)
         {
             _logger = logger;
+            var url = $"{host}:{DAPR_PORT}";
+            this.client = new HttpClient();
+            this.client.Timeout = TimeSpan.FromMilliseconds(Timeout.Infinite);
+            this.client.BaseAddress = new Uri(url);
         }
 
         [HttpPost]
-        public IEnumerable<WeatherForecast> GenerateEvents()
+        public async Task GenerateEvent(WeatherEvent weatherEvent)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var request = new HttpRequestMessage(HttpMethod.Post, $"/v1.0/publish/{pubSubName}/report");
+
+            var jsonBody = JsonConvert.SerializeObject(weatherEvent);
+            var httpContent = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+            request.Content = httpContent;
+
+            var response = await this.client.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode) {
+                throw new Exception($"Unable to publish to: {pubSubName}");
+            }
         }
     }
 }
