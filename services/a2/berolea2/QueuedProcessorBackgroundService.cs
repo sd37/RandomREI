@@ -9,16 +9,17 @@ namespace berolea2
     internal class QueuedProcessorBackgroundService : BackgroundService
     {
         private readonly IBackgroundTaskQueue _taskQueue;
-        private readonly IServiceProvider _serviceProvider;
         private readonly ILogger _logger;
+        private readonly IReportService _reportService;
 
-        public QueuedProcessorBackgroundService(IBackgroundTaskQueue taskQueue,
-            IServiceProvider serviceProvider,
-            ILoggerFactory loggerFactory)
+        public QueuedProcessorBackgroundService(
+            IBackgroundTaskQueue taskQueue,
+            ILogger logger,
+            IReportService reportService)
         {
             _taskQueue = taskQueue;
-            _serviceProvider = serviceProvider;
-            _logger = loggerFactory.CreateLogger<QueuedProcessorBackgroundService>();
+            _logger = logger;
+            _reportService = reportService;
         }
 
         protected override async Task ExecuteAsync(CancellationToken cancellationToken)
@@ -31,7 +32,7 @@ namespace berolea2
 
                 try
                 {
-                    await workItem(_serviceProvider, cancellationToken);
+                    await workItem(_reportService, cancellationToken);
                 }
                 catch (Exception ex)
                 {

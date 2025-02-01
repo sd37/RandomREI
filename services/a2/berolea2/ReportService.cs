@@ -1,6 +1,12 @@
-﻿namespace berolea2
+﻿using System.Threading.Tasks;
+
+namespace berolea2
 {
-    public class ReportService
+    internal class ReportService : IReportService
     {
+        public async Task GenerateReportAsync(WeatherEvent data)
+        {
+            await Task.Delay(1 * 1000);
+        }
     }
 }

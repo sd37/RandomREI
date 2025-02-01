@@ -6,8 +6,8 @@ namespace berolea2
 {
     internal interface IBackgroundTaskQueue
     {
-        void QueueBackgroundWorkItem(Func<IServiceProvider, CancellationToken, Task> workItem);
+        void QueueBackgroundWorkItem(Func<IReportService, CancellationToken, Task> workItem);
 
-        Task<Func<IServiceProvider, CancellationToken, Task>> DequeueAsync(CancellationToken cancellationToken);
+        Task<Func<IReportService, CancellationToken, Task>> DequeueAsync(CancellationToken cancellationToken);
     }
 }
