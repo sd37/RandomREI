@@ -1,10 +1,6 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace berolea2
+﻿namespace berolea2
 {
-    internal interface IBackgroundTaskQueue
+    public interface IBackgroundTaskQueue
     {
         void QueueBackgroundWorkItem(Func<IReportService, CancellationToken, Task> workItem);
 

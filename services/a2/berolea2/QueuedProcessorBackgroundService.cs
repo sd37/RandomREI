@@ -1,10 +1,4 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace berolea2
+﻿namespace berolea2
 {
     internal class QueuedProcessorBackgroundService : BackgroundService
     {

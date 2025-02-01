@@ -1,8 +1,6 @@
-﻿using System.Threading.Tasks;
-
-namespace berolea2
+﻿namespace berolea2
 {
-    internal interface IReportService
+    public interface IReportService
     {
         Task GenerateReportAsync(WeatherEvent data);
     }

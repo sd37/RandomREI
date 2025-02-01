@@ -1,18 +1,16 @@
 ﻿namespace berolea2.Controllers
 {
     using Dapr;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using System;
-    using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
 
     [ApiController]
     [Route("[controller]")]
     [IgnoreAntiforgeryToken]
-    internal class ReportController : ControllerBase
+    public class ReportController : ControllerBase
     {
         private readonly ILogger<ReportController> _logger;
         private readonly IBackgroundTaskQueue _taskQueue;
@@ -38,9 +36,9 @@
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public string Get()
         {
-            return Ok();
+            return "Ok";
         }
     }
 }

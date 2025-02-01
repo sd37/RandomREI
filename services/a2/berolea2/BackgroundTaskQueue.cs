@@ -1,11 +1,8 @@
 ﻿namespace berolea2
 {
-    using System;
     using System.Collections.Concurrent;
-    using System.Threading;
-    using System.Threading.Tasks;
 
-    internal class BackgroundTaskQueue : IBackgroundTaskQueue
+    public class BackgroundTaskQueue : IBackgroundTaskQueue
     {
         private readonly SemaphoreSlim _signal = new(0);
         private readonly ConcurrentQueue<Func<IReportService, CancellationToken, Task>> _workItems = new();
