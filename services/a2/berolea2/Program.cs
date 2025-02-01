@@ -9,7 +9,6 @@ namespace berolea2
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllers();
-            builder.Services.AddHostedService<Worker>();
 
             var app = builder.Build();
             app.Run();
