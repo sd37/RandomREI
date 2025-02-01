@@ -25,7 +25,7 @@
         [Topic(Constants.PubSubName, "report")]
         public IActionResult ConsumeEvent(WeatherEvent weatherEvent)
         {
-            _logger.LogInformation($"{weatherEvent}");
+            _logger.LogInformation($"{weatherEvent.EventId}:{weatherEvent.EventData}");
             Func<IReportService, CancellationToken, Task> task = async (reportService, token) =>
             {
                 await reportService.GenerateReportAsync(weatherEvent);
