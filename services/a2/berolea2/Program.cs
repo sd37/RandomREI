@@ -16,6 +16,10 @@ namespace berolea2
 
             var app = builder.Build();
 
+            // Dapr configs
+            app.UseCloudEvents();
+            app.MapSubscribeHandler();
+
             // Configure the HTTP request pipeline.
 
             app.UseHttpsRedirection();
