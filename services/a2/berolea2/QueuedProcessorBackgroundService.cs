@@ -9,22 +9,18 @@ namespace berolea2
     internal class QueuedProcessorBackgroundService : BackgroundService
     {
         private readonly IBackgroundTaskQueue _taskQueue;
-        private readonly ILogger _logger;
         private readonly IReportService _reportService;
 
         public QueuedProcessorBackgroundService(
             IBackgroundTaskQueue taskQueue,
-            ILogger logger,
             IReportService reportService)
         {
             _taskQueue = taskQueue;
-            _logger = logger;
             _reportService = reportService;
         }
 
         protected override async Task ExecuteAsync(CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Queued Processor Background Service is starting.");
 
             while (!cancellationToken.IsCancellationRequested)
             {
@@ -36,11 +32,8 @@ namespace berolea2
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, $"Error occurred executing {nameof(workItem)}.");
                 }
             }
-
-            _logger.LogInformation("Queued Processor Background Service is stopping.");
         }
     }
 }

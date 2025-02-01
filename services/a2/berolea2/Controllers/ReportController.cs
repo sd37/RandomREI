@@ -36,5 +36,11 @@
             _taskQueue.QueueBackgroundWorkItem(task);
             return Ok();
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok();
+        }
     }
 }
