@@ -6,3 +6,6 @@ dapr-http-port: 3500 --> important to set. This is the port of the daprd sidecar
 
 -- notes
 ports in yaml file should match ports in dockerfile. Otherwise daprd will fail.
+
+dapr.exe run --log-level debug  --app-id berolea3 --app-port 6700 --dapr-http-port 3501
+dapr.exe run --log-level debug  --app-id ferolea3 --app-port 6500 --dapr-http-port 3500
