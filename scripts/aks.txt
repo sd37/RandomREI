@@ -13,3 +13,23 @@ Commonalitys
 - Most often services need common features like service to service call, need some orchestration pattern like chained tasks, fan-in, fan-out etc.
   The infra will provide these basic primitives which services can plugin and for implementation of business logic. Services can specify which features they need   from the infra in a yaml file as well.
 
+
+-- Logs --
+
+Pull Request
+A pull request is created to GriffinD2 repository with your changes. Please get it reviewed by Cosmic team.
+
+Pull Request Title: [scim-dspmai-aihub] Inventory Update
+Pull Request Id: 3945587
+Pull Request Link: https://o365exchange.visualstudio.com/DefaultCollection/O365%20Core/_git/GriffinD2/pullrequest/3945587
+
+Please refer to PR Completion documentation for getting your PR approved and completed.
+You can also refer Service Metadata documentation to track the build and deployment of your above changes.
+
+Namespace Provisioning Status
+To track the status of your Namespace, please refer to the Partner NS Provisioning Status Dashboard while signed in with your @microsoft.com account.
+Select your service name in the upper left corner of the page and wait for the panels to refresh.
+
+
+Partner NS Provisioning Dashboard: https://cosmicinstancev1-agfva8epbwhkbuh8.scus.grafana.azure.com/d/2XoYNyZVz/partner-ns-provisioning-status-dashboard?orgId=1
+ServiceMetada: https://eng.ms/docs/experiences-devices/m365-core/substrate-platform/cosmic-group/partners/onboarding/prepare-and-test-deployment/onboard-service-metadata
