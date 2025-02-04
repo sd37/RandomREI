@@ -1,6 +1,0 @@
-@webrolea2_HostAddress = http://localhost:5075
-
-GET {{webrolea2_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

@@ -1,7 +1,5 @@
-namespace webrolea2
+namespace berolea2
 {
-    using System;
-
     public class WeatherForecast
     {
         public DateOnly Date { get; set; }

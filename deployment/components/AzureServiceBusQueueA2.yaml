@@ -1,0 +1,10 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: servicebus-a2queue
+spec:
+  type: pubsub.azure.servicebus.queues
+  version: v1
+  metadata:
+  - name: connectionString
+    value: "Endpoint=sb://solutiona.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=6TZvRPPu28AvBgxsPIQQYhHmWKD+N6K1Q+ASbH35Xgo="

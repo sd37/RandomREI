@@ -4,11 +4,32 @@ namespace berolea2
     {
         public static void Main(string[] args)
         {
-            var builder = Host.CreateApplicationBuilder(args);
-            builder.Services.AddHostedService<Worker>();
+            var builder = WebApplication.CreateBuilder(args);
 
-            var host = builder.Build();
-            host.Run();
+            // Add services to the container.
+
+            builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
+            builder.Services.AddSingleton<IReportService, ReportService>();
+            builder.Services.AddHostedService<QueuedProcessorBackgroundService>();
+
+            builder.Services.AddControllers();
+
+            var app = builder.Build();
+
+            // Dapr configs
+            app.UseCloudEvents();
+            app.MapSubscribeHandler();
+
+            // Configure the HTTP request pipeline.
+
+            app.UseHttpsRedirection();
+
+            app.UseAuthorization();
+
+
+            app.MapControllers();
+
+            app.Run();
         }
     }
 }

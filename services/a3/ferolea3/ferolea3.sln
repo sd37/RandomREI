@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "berolea2", "berolea2.csproj", "{34350DCF-CFD9-478F-95F0-17D6B8BFCFA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ferolea3", "ferolea3.csproj", "{B8163F00-837A-4572-9410-DD48E76DD04D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{34350DCF-CFD9-478F-95F0-17D6B8BFCFA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34350DCF-CFD9-478F-95F0-17D6B8BFCFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34350DCF-CFD9-478F-95F0-17D6B8BFCFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34350DCF-CFD9-478F-95F0-17D6B8BFCFA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8163F00-837A-4572-9410-DD48E76DD04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8163F00-837A-4572-9410-DD48E76DD04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8163F00-837A-4572-9410-DD48E76DD04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8163F00-837A-4572-9410-DD48E76DD04D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace webrolea2
+namespace ferolea3
 {
     public class Program
     {
@@ -14,6 +11,8 @@ namespace webrolea2
             builder.Services.AddControllers();
 
             var app = builder.Build();
+
+            // Configure the HTTP request pipeline.
 
             app.UseHttpsRedirection();
 
