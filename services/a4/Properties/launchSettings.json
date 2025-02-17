@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "a4": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7230 --verbose",
+      "launchBrowser": false
+    }
+  }
+}
